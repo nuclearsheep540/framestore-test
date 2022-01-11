@@ -14,6 +14,7 @@ export default function Home() {
 
     data.user = data.includes.users[0].name
     data.handle = data.includes.users[0].username
+    data.image = data.includes.users[0].profile_image_url
     setApiData(data)
   }, [])
 
@@ -24,17 +25,20 @@ export default function Home() {
   return (
     <>
       <h1 className='title'>Framestore Social Feed</h1>
-      {apiData.data && apiData.data.map((item, i) => (
-          <MediaObject
-            key={i}
-            content={item.text}
-            name={apiData.user}
-            handle={apiData.handle}
-            created={format_date(item.created_at)}
-            post_id={item.id}
-          />
-        ))     
-      }
+      <div>
+        {apiData.data && apiData.data.map((item, i) => (
+            <MediaObject
+              key={i}
+              content={item.text}
+              name={apiData.user}
+              handle={apiData.handle}
+              created={format_date(item.created_at)}
+              post_id={item.id}
+              img={apiData.image}
+            />
+          ))
+        }
+      </div>
     </>
   )
 }
