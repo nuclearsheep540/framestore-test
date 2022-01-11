@@ -9,7 +9,7 @@ const aggregate_api_data = (twitter, youtube) => {
     // returning a single dict of their data
 
     let aggregate = []
-    twitter.data.map(item => (
+    twitter && twitter.data.map(item => (
         aggregate.push({
             source: "twitter",
             content: item.text,
@@ -22,7 +22,7 @@ const aggregate_api_data = (twitter, youtube) => {
         )
     )
 
-    youtube.items.map(item => (
+    youtube.items && youtube.items.map(item => (
         aggregate.push({
             source: "youtube",
             content: item.snippet.description 

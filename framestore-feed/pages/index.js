@@ -25,11 +25,12 @@ export default function Home() {
         {apiData && apiData.map((data, i) => (
             <MediaObject
               key={i}
+              source={data.source}
               content={data.content}
               name={data.name}
               handle={data.handle}
               created={format_date(data.created)}
-              post_id={data.id}
+              post_id={data.post_id}
               img={data.image}
             />
           ))
