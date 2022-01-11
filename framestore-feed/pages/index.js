@@ -11,10 +11,6 @@ export default function Home() {
     const data = await req.json()
     
     console.log(data)
-
-    data.user = data.includes.users[0].name
-    data.handle = data.includes.users[0].username
-    data.image = data.includes.users[0].profile_image_url
     setApiData(data)
   }, [])
 
