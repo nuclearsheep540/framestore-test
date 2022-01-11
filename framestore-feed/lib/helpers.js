@@ -7,7 +7,6 @@ const aggregate_api_data = (twitter, youtube) => {
     // Consilodate data from two APIs, aggregating its data to a common format
     // returning a single dict of their data
 
-    // deconstruct data, so to map it to common keys across the app
     let aggregate = []
     twitter.data.map(item => (
         aggregate.push({
@@ -15,7 +14,7 @@ const aggregate_api_data = (twitter, youtube) => {
             content: item.text,
             name: twitter.includes.users[0].name,
             handle: twitter.includes.users[0].username,
-            created: item.created_at,
+            created: Date.parse(item.created_at),
             post_id: item.id,
             image: twitter.includes.users[0].profile_image_url,
             })
@@ -30,14 +29,14 @@ const aggregate_api_data = (twitter, youtube) => {
                 : item.snippet.title,
             name: item.snippet.channelTitle,
             handle: item.snippet.channelTitle,
-            created: item.snippet.publishedAt,
+            created: Date.parse(item.snippet.publishedAt),
             post_id: item.id.videoId,
             image: item.snippet.thumbnails.default.url
             })
         )
     )
-
-    return aggregate
+    // return an sorted list by when each content was created
+    return aggregate.sort((a, b) => a.created - b.created)
 }
 
 export {format_date, aggregate_api_data}
