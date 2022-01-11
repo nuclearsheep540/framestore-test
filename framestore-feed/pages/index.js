@@ -6,15 +6,15 @@ export default function Home() {
   const [apiData, setApiData] = useState([])
 
   useEffect(async () => {
-    // get API data on page load
+    // fetch data, check its there, else empty arr
     const twitter_req = await fetch('http://localhost:3000/api/twitter')
-    const twitter_data = await twitter_req.json()
+    const twitter_data = await twitter_req.status === 200 ? await twitter_req.json() : []
     
     const yt_req = await fetch('http://localhost:3000/api/youtube')
-    const yt_data = await yt_req.json()
+    const yt_data = await yt_req.status === 200 ? await yt_req.json() : []
 
+    // aggregate data so its easy for us to map over
     const result = aggregate_api_data(twitter_data, yt_data)
-    console.log(result)
     setApiData(result)
   }, [])
 
