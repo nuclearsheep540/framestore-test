@@ -16,10 +16,6 @@ export default async function handler(req, res) {
       // await the response and return it
       const data = await response.json()
 
-      // deconstruct for easier (lazier) access
-      data.user = data.includes.users[0].name
-      data.handle = data.includes.users[0].username
-      data.image = data.includes.users[0].profile_image_url
       return res.status(200).json(data)
   } 
   // exit if not GET
