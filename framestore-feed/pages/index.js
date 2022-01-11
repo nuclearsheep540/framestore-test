@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import MediaObject from '../components/MediaObject';
+import { format_date, aggregate_api_data} from '../lib/helpers';
 
 export default function Home() {
-  const [name, setName] = useState("Matt")
   const [apiData, setApiData] = useState([])
 
   useEffect(async () => {
     // get API data on page load
-    const req = await fetch('http://localhost:3000/api/twitter')
-    const data = await req.json()
+    const twitter_req = await fetch('http://localhost:3000/api/twitter')
+    const twitter_data = await twitter_req.json()
     
-    console.log(data)
-    setApiData(data)
-  }, [])
+    // const yt_req = await fetch('http://localhost:3000/api/twitter')
+    // const yt_data = await req.json()
 
-  const format_date = (string) => {
-    return new Date(Date.parse(string)).toLocaleString('en', {day: "numeric", weekday: "short",  month: "short", year: "numeric"})
-  }
+    // const data = {twitter: twitter_data, youtube: yt_data}
+
+    // aggregate_api_data(twitter_data, )
+    console.log(twitter_data)
+    setApiData(twitter_data)
+  }, [])
 
   return (
     <div className='column'>
