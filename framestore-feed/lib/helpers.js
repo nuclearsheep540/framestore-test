@@ -1,7 +1,8 @@
 const format_date = (string) => {
     // Return a more human-readable, prettier format of the date format from an API
-    return new Date(Date.parse(string)).toLocaleString('en', {day: "numeric", weekday: "short",  month: "short", year: "numeric"})
-  }
+    return new Date(string).toLocaleString('en', {day: "numeric", weekday: "short",  month: "short", year: "numeric"})
+    // return new Date(string)
+}
 
 const aggregate_api_data = (twitter, youtube) => {
     // Consilodate data from two APIs, aggregating its data to a common format
@@ -36,7 +37,7 @@ const aggregate_api_data = (twitter, youtube) => {
         )
     )
     // return an sorted list by when each content was created
-    return aggregate.sort((a, b) => a.created - b.created)
+    return aggregate.sort((a, b) => b.created - a.created)
 }
 
 export {format_date, aggregate_api_data}

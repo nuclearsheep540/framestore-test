@@ -28,7 +28,7 @@ export default function Home() {
               content={data.content}
               name={data.name}
               handle={data.handle}
-              created={format_date(data.created_at)}
+              created={format_date(data.created)}
               post_id={data.id}
               img={data.image}
             />
