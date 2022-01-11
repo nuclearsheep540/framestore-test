@@ -1,6 +1,4 @@
 // media component for social feed
-import React, { useState, useEffect } from 'react';
-
 
 export default function MediaObject({handle, name, content}) {
     return (
