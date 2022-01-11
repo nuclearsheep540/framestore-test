@@ -2,7 +2,7 @@
 
 export default async function handler(req, res) {
   const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAE77XwEAAAAAknHORpglJbMQcHnRoFmTQ7xdr5E%3Di6hUdyJJgco9jLcRdbBmlzU073105CtQ5cuAjVlJZrYRzrwAHR'
-  const url = 'https://api.twitter.com/2/users/33475281/tweets'
+  const url = 'https://api.twitter.com/2/users/33475281/tweets?expansions=author_id&user.fields=created_at&tweet.fields=created_at'
 
   // make sure our API wont hang
   if (req.method === 'GET') {

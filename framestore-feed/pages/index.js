@@ -11,16 +11,30 @@ export default function Home() {
     const data = await req.json()
     
     console.log(data)
+
+    data.user = data.includes.users[0].name
+    data.handle = data.includes.users[0].username
     setApiData(data)
   }, [])
 
+  const format_date = (string) => {
+    return new Date(Date.parse(string)).toLocaleString('en', {day: "numeric", weekday: "short",  month: "short", year: "numeric"})
+  }
+
   return (
-    <body className='column'>
+    <>
       <h1 className='title'>Framestore Social Feed</h1>
-      {apiData.data.map(item => (
-          <MediaObject content={item.text}/>
-        )
-        )}
-    </body>
+      {apiData.data && apiData.data.map((item, i) => (
+          <MediaObject
+            key={i}
+            content={item.text}
+            name={apiData.user}
+            handle={apiData.handle}
+            created={format_date(item.created_at)}
+            post_id={item.id}
+          />
+        ))     
+      }
+    </>
   )
 }
