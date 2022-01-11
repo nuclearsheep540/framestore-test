@@ -1,7 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default async function handler(req, res) {
-  const url = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBhLLpRVy_97V68UZUA2ps3gOWKWuEugNg&channelId=UCGkRPUvp4tZXyd4EZUdjrCw&part=snippet,id&maxResults=10&snippet=description'
+  const key = 'AIzaSyAxwgMxAMeSubiJ8kzPwc0zX12tgu2iwjU'
+  const url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=UCGkRPUvp4tZXyd4EZUdjrCw&part=snippet,id&maxResults=10&snippet=description`
 
   // make sure our API wont hang
   if (req.method === 'GET') {
