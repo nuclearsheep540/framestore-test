@@ -2,7 +2,7 @@
 
 export default async function handler(req, res) {
   const token = 'Bearer AAAAAAAAAAAAAAAAAAAAAE77XwEAAAAAknHORpglJbMQcHnRoFmTQ7xdr5E%3Di6hUdyJJgco9jLcRdbBmlzU073105CtQ5cuAjVlJZrYRzrwAHR'
-  const url = 'https://api.twitter.com/2/users/33475281/tweets'
+  const url = 'https://api.twitter.com/2/users/33475281/tweets?expansions=author_id&user.fields=profile_image_url&tweet.fields=created_at'
 
   // make sure our API wont hang
   if (req.method === 'GET') {
@@ -15,6 +15,11 @@ export default async function handler(req, res) {
   
       // await the response and return it
       const data = await response.json()
+
+      // deconstruct for easier (lazier) access
+      data.user = data.includes.users[0].name
+      data.handle = data.includes.users[0].username
+      data.image = data.includes.users[0].profile_image_url
       return res.status(200).json(data)
   } 
   // exit if not GET

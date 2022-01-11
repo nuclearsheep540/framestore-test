@@ -14,13 +14,27 @@ export default function Home() {
     setApiData(data)
   }, [])
 
+  const format_date = (string) => {
+    return new Date(Date.parse(string)).toLocaleString('en', {day: "numeric", weekday: "short",  month: "short", year: "numeric"})
+  }
+
   return (
-    <body className='column'>
+    <div className='column'>
       <h1 className='title'>Framestore Social Feed</h1>
-      {apiData.data.map(item => (
-          <MediaObject content={item.text}/>
-        )
-        )}
-    </body>
+      <div>
+        {apiData.data && apiData.data.map((item, i) => (
+            <MediaObject
+              key={i}
+              content={item.text}
+              name={apiData.user}
+              handle={apiData.handle}
+              created={format_date(item.created_at)}
+              post_id={item.id}
+              img={apiData.image}
+            />
+          ))
+        }
+      </div>
+    </div>
   )
 }
