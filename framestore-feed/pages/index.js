@@ -19,7 +19,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className='column'>
       <h1 className='title'>Framestore Social Feed</h1>
       <div>
         {apiData.data && apiData.data.map((item, i) => (
@@ -35,6 +35,6 @@ export default function Home() {
           ))
         }
       </div>
-    </>
+    </div>
   )
 }
