@@ -7,14 +7,14 @@ export default function Home() {
 
   useEffect(async () => {
     // get API data on page load
-    // const twitter_req = await fetch('http://localhost:3000/api/twitter')
-    // const twitter_data = await twitter_req.json()
+    const twitter_req = await fetch('http://localhost:3000/api/twitter')
+    const twitter_data = await twitter_req.json()
     
     const yt_req = await fetch('http://localhost:3000/api/youtube')
     const yt_data = await yt_req.json()
-    console.log(yt_data)
+    // console.log(twitter_data)
     // const data = {twitter: twitter_data, youtube: yt_data}
-    setApiData(aggregate_api_data(yt_data))
+    setApiData(aggregate_api_data(twitter_data, yt_data))
   }, [])
 
   return (
