@@ -9,7 +9,7 @@ const format_youtube_data = (youtube) => {
             ? item.snippet.description 
             : item.snippet.title,
         name: item.snippet.channelTitle,
-        handle: item.snippet.channelTitle,
+        handle: item.snippet.channelId,
         created: Date.parse(item.snippet.publishedAt),
         post_id: item.id.videoId,
         image: item.snippet.thumbnails.default.url

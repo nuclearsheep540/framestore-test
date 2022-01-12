@@ -4,9 +4,8 @@ export default function MediaObject({source, handle, name, content, created, pos
     const twitter_media_ext = `https://twitter.com/${handle}/status/${post_id}`
     const twitter_profile = `https://twitter.com/${handle}`
     const youtube_media_ext = `https://www.youtube.com/watch?v=${post_id}`
-    const youtube_profile = `https://www.youtube.com/channel/`
+    const youtube_profile = `https://www.youtube.com/channel/${handle}`
 
-    // UCGkRPUvp4tZXyd4EZUdjrCw
     return (
         <article className="media">
             <figure className="media-left">
@@ -20,7 +19,7 @@ export default function MediaObject({source, handle, name, content, created, pos
                     <div className="content">
                     <p>
                         <strong><a target="_blank" href={twitter_media_ext}>{name}</a></strong> 
-                        <small>@<a target="_blank" href={twitter_profile}>{handle}</a></small> · <small>{created}</small>
+                        <small>@{handle}</small> · <small>{created} via <a target="_blank" href={twitter_profile}>{source}</a></small>
                         <br />
                         {content}
                     </p>
@@ -33,7 +32,7 @@ export default function MediaObject({source, handle, name, content, created, pos
                     <div className="content">
                     <p>
                         <strong><a target="_blank" href={youtube_media_ext}>{name}</a></strong> 
-                        <small>@{handle}</small> · <small>{created}</small>
+                        <small>@{name}</small> · <small>{created} via <a target="_blank" href={youtube_profile}>{source}</a></small>
                         <br />
                         {content}
                     </p>
