@@ -25,16 +25,15 @@ Given more time there would be a lot more I could improve upon. I would want to 
 
 I would also consider using TypeScript to create interfaces to ensure the data being handled in the front-end is as expected.
 
-Also, as mentioned, I would have tried to implement a secret manager. I would have considered `dotenv` for this project, but that would have required you to generate your own Twitter and GCP API keys and add them to the codebase (I wanted to make this as convinient as possible)
+Also, as mentioned, I would have tried to implement a secret manager. I would have considered `dotenv` for this project, but that would have required you to generate your own Twitter and GCP API keys and add them to the codebase (I wanted to make this as convenient as possible)
 
 # Running the app
 * First of all be sure to clone this git repository
-* navigate into the `framestore-feed` directory
+* navigate from the `framestore-test` to the `framestore-feed` directory, if you haven't already.
 * Run `npm i` to install this applications packages
 * To start a dev server, run `npm run dev`
 
 This server runs locally on port `3000`
 
-If everything worked you should see (insert screenshot)
-
-#
+If everything worked you should see:
+![framestore](https://user-images.githubusercontent.com/37055772/149102767-1405c70b-cf27-4603-8901-6eefa07b5264.PNG)
