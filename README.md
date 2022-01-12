@@ -10,7 +10,7 @@ _hint: if you're getting a 403 from my app's endpoint it means the GCP API quota
 <br>
 
 # Introduction
-This is a simple application that aggregates social media feed data into a single representation, re-structuring data into a common model, and using a single re-usable React component to render the data client-side.
+This is a simple application that aggregates social media feed data into a single representation, modelling the data before handing it to the front-end where it's rendered using a single re-usable React component.
 
 I've decided to build this app with Next.js framework to run my node server and dev environment - I've never used Next.js and wanted to use this as a learning opportunity. It's worked out well, saving me having to personally set up webpack and has features such as hot-reloading out-of-the-box. The API routing is also quite intuitive and required minimal setup.
 
@@ -18,7 +18,7 @@ I'm using React Hooks to build my front-end components, and using Bulma.CSS fram
 
 Twitter API and Google GCP API have been used to retreive respective data on Twitter and YouTube - a first for me with these two API's, they were very easy to use (albiet google having tight limits on quotas).
 
-Other than Hooks' framework and Bulma, everything else is every-day JavaScript. I couldn't justify needing any more frameworks within this challenge, as I was able to achieve what I wanted with the standard library.
+Other than Hooks' framework and Bulma, everything else is every-day JavaScript. I couldn't justify needing any more libraries within this challenge, as I was able to achieve what I wanted with the standard library.
 
 ## Thoughts
 Given more time there would be a lot more I could improve upon. I would want to build a Python backend, and create a proper MVC design so that I can handle the re-structuring of the API response data behind a controller - even more so, modelling the data myself with Classes, so I can create a social-feed object with defined properties, I could then have my own backend which writes and caches this new data and could reduce the need to query the external APIs when nessesary.
